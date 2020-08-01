@@ -1,9 +1,89 @@
+$color1: #5a57ff;
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100vw;
+  background-color: $color1;
+  height: 10vh;
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  height: 90vh;
+
+  & section {
+    padding: 2%;
+    width: 50%;
+  }
+
+  & .chat {
+    border-right: 5px solid #000;
+
+    & li {
+      list-style: none;
+      font-weight: 800;
+      margin: 2em;
+      overflow-wrap: break-word;
+    }
+  }
+
+  & .input-msg {
+    & label {
+      display: block;
+      font-weight: 800;
+      font-size: 3em;
+      color: $color1;
+      text-align: center;
+    }
+
+    & #ym {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      width: 80%;
+      margin: 2rem;
+      resize: none;
+      width: 90%;
+      font-size: 1.7em;
+      border: 6px solid #000;
+      padding: 1%;
+    }
+
+    & .btn-send {
+      text-align: center;
+      align-items: center;
+      align-content: center;
+      & #send {
+        background-color: $color1;
+        color: white;
+        font-size: 30px;
+        border: none;
+        border-radius: 35px;
+        width: 80%;
+        height: 1.9em;
+      }
+    }
+  }
 }

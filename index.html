@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
     <title>Y'allChat</title>
     <script
       type="text/javascript"
@@ -15,25 +16,43 @@
       $(document).ready(function () {
         let socket = io.connect("http://127.0.0.1:5000");
 
+        let currentdate = new Date();
+        let currtime =
+          currentdate.getHours() +
+          ":" +
+          currentdate.getMinutes() +
+          ":" +
+          currentdate.getSeconds();
+
+        setInterval(function () {
+          currentdate = new Date();
+          currtime =
+            currentdate.getHours() +
+            ":" +
+            currentdate.getMinutes() +
+            ":" +
+            currentdate.getSeconds();
+        }, 1000);
+
         socket.on("connect", function () {
-          socket.send("User has connected!");
+          socket.send("Anonymous has connected!");
         });
 
         socket.on("message", function (msg) {
-          $("#msgs").append('<li class="msg">' + msg + "</li>");
+          $("#msgs").append(
+            '<li class="msg">' + currtime + " - " + msg + "</li>"
+          );
           console.log("Received message");
         });
 
         $("#send").on("click", function () {
-          socket.send($("#msg").val());
-          $("#msg").val("");
+          socket.send($("#ym").val());
+          $("#ym").val("");
         });
       });
     </script>
     <header>
-      <section>
-        <div class="logo">Y'ALLCHAT</div>
-      </section>
+      <div class="logo"><p>Y'ALLCHAT</p></div>
     </header>
     <main>
       <section class="chat">
@@ -42,11 +61,10 @@
       <section class="input-msg">
         <p class="people-online">People online: 194,942</p>
         <article class="yourmsg">
-          <label for="ym" class="your-message">Your Message:</label>
+          <label for="ym" class="your-message">Your&nbsp;Message:</label>
           <textarea name="ym" id="ym" cols="30" rows="10"></textarea>
         </article>
-        <div>
-          <input type="text" id="msg" />
+        <div class="btn-send">
           <button id="send">SEND</button>
         </div>
       </section>
