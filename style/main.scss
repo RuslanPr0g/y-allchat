@@ -46,11 +46,21 @@ main {
   & .chat {
     border-right: 5px solid #000;
 
-    & li {
-      list-style: none;
-      font-weight: 800;
-      margin: 2em;
-      overflow-wrap: break-word;
+    & #msgs {
+      border: none;
+      width: 100%;
+      resize: none;
+      height: 100%;
+      font-weight: 700;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+
+      &:hover {
+        cursor: default;
+      }
+
+      &:focus {
+        border: none;
+      }
     }
   }
 
@@ -122,6 +132,11 @@ main {
       color: #fff;
       font-size: 0.8em;
       min-height: 50%;
+
+      & #msgs {
+        color: #fff;
+        background-color: $color1;
+      }
     }
 
     & .input-msg {

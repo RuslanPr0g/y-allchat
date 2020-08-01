@@ -56,11 +56,21 @@ main .chat {
   border-right: 5px solid #000;
 }
 
-main .chat li {
-  list-style: none;
-  font-weight: 800;
-  margin: 2em;
-  overflow-wrap: break-word;
+main .chat #msgs {
+  border: none;
+  width: 100%;
+  resize: none;
+  height: 100%;
+  font-weight: 700;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+main .chat #msgs:hover {
+  cursor: default;
+}
+
+main .chat #msgs:focus {
+  border: none;
 }
 
 main .input-msg label {
@@ -136,6 +146,10 @@ main .input-msg .btn-send #send {
     color: #fff;
     font-size: 0.8em;
     min-height: 50%;
+  }
+  main .chat #msgs {
+    color: #fff;
+    background-color: #5a57ff;
   }
   main .input-msg #ym {
     width: 90%;
