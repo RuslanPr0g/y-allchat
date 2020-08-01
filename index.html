@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Y'allChat</title>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   </head>
   <body>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        let socket = io.connect("http://127.0.0.1:5000");
+
+        socket.on("connect", function () {
+          socket.send("User has connected!");
+        });
+
+        socket.on("message", function (msg) {
+          $("#msgs").append('<li class="msg">' + msg + "</li>");
+        });
+
+        $("#send").on("click", function () {
+          socket.send($("#msg").val());
+          $("#msg").val("");
+        });
+      });
+    </script>
     <header>
       <section>
         <div class="logo">Y'ALLCHAT</div>
@@ -13,12 +36,7 @@
     </header>
     <main>
       <section class="chat">
-        <ul class="msgs">
-          <li class="msg">1</li>
-          <li class="msg">2</li>
-          <li class="msg">3</li>
-          <li class="msg">4</li>
-        </ul>
+        <ul class="msgs"></ul>
       </section>
       <section class="input-msg">
         <p class="people-online">People online: 194,942</p>
@@ -26,14 +44,12 @@
           <label for="ym" class="your-message">Your Message:</label>
           <textarea name="ym" id="ym" cols="30" rows="10"></textarea>
         </article>
-        <form action="post">
-          <input type="text" />
-          <button class="send">SEND</button>
+        <form action="">
+          <input type="text" id="msg" />
+          <button id="send">SEND</button>
         </form>
       </section>
     </main>
-    <footer>
-      yup
-    </footer>
+    <footer></footer>
   </body>
 </html>
