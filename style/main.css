@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -62,7 +66,7 @@ main .chat li {
 main .input-msg label {
   display: block;
   font-weight: 800;
-  font-size: 3em;
+  font-size: 1.9em;
   color: #5a57ff;
   text-align: center;
 }
@@ -71,9 +75,10 @@ main .input-msg #ym {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   width: 80%;
-  margin: 2rem;
+  margin: 1rem;
   resize: none;
   width: 90%;
+  height: 200px;
   font-size: 1.7em;
   border: 6px solid #000;
   padding: 1%;
@@ -96,5 +101,53 @@ main .input-msg .btn-send #send {
   border-radius: 35px;
   width: 80%;
   height: 1.9em;
+}
+
+@media screen and (max-width: 720px) {
+  html {
+    overflow-y: scroll;
+  }
+  header {
+    background-color: #fff;
+  }
+  header div {
+    color: black;
+    font-weight: 800;
+  }
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main section {
+    padding: 2%;
+    width: 100%;
+  }
+  main .chat {
+    border-right: none;
+    background-color: #5a57ff;
+    color: #fff;
+    font-size: 0.8em;
+    min-height: 50%;
+  }
+  main .input-msg #ym {
+    width: 90%;
+  }
+  .your-message {
+    font-size: 2%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  header {
+    font-size: 0.8em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -46,8 +46,10 @@
         });
 
         $("#send").on("click", function () {
-          socket.send($("#ym").val());
-          $("#ym").val("");
+          if ($("#ym").val()) {
+            socket.send($("#ym").val());
+            $("#ym").val("");
+          }
         });
       });
     </script>
