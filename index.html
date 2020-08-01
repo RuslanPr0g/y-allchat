@@ -21,6 +21,7 @@
 
         socket.on("message", function (msg) {
           $("#msgs").append('<li class="msg">' + msg + "</li>");
+          console.log("Received message");
         });
 
         $("#send").on("click", function () {
@@ -36,7 +37,7 @@
     </header>
     <main>
       <section class="chat">
-        <ul class="msgs"></ul>
+        <ul id="msgs"></ul>
       </section>
       <section class="input-msg">
         <p class="people-online">People online: 194,942</p>
@@ -44,10 +45,10 @@
           <label for="ym" class="your-message">Your Message:</label>
           <textarea name="ym" id="ym" cols="30" rows="10"></textarea>
         </article>
-        <form action="">
+        <div>
           <input type="text" id="msg" />
           <button id="send">SEND</button>
-        </form>
+        </div>
       </section>
     </main>
     <footer></footer>
